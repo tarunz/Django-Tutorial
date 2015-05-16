@@ -7,7 +7,7 @@
   <title>User Profile</title>
   <meta name="author" content="Meet Vora">
   <link rel="stylesheet" type="text/css" media="all" href="{% static 'login/styles.css' %}">
-  <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'jquery-1.10.2.min.js' %}"></script>
 
 </head>
 
@@ -19,8 +19,11 @@
       <h1>{{ user.username }}</h1>      
       <section id="bio">
         <p>Hey there {{ user.first_name }}!</p>
-        <p>Blah blah blah I've done MBA.<br />Blah blah blah, the MBA was done by me. <br />Blah blah blah M, then B, then A was done by me.<br /></p>
+        <p>Blah blah blah I've done MBA.<br />Blah blah blah, the MBA was done by me. <br />Blah blah blah M, then B, then A was done by me.<br />
+        <strong> Email address: {{ user.email }} <br /> Website: {{ user.web }} <br /> </strong>
+        </p>
       </section>
+      <br /><hr /><br />
       <section id="settings">
       <form action="/login/renew/" method="POST">
       {% csrf_token %}
@@ -42,7 +45,7 @@
     </div>
   </div>
 {% else %}
-<h1>Sorry, you don't have access to visit this page. Sign in <a href= "/login/signin">here</a> to continue.</h1>
+<h1>Sorry, you don't have access to visit this page. <br /><br />Sign in <a href= "/login/signin">here</a> to continue.</h1>
 {% endif %}
 </body>
 </html>
